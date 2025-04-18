@@ -1,10 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://citr8vogbbncd"]
+[gd_scene load_steps=11 format=3 uid="uid://citr8vogbbncd"]
 
 [ext_resource type="Script" path="res://character/character.gd" id="1_c0mep"]
 [ext_resource type="Texture2D" uid="uid://f3dqpqlf11db" path="res://character/assets/character 1.png" id="2_cvm4i"]
 [ext_resource type="Texture2D" uid="uid://b1f3rn5wy843p" path="res://character/assets/character 2.png" id="3_1cnfr"]
 [ext_resource type="Texture2D" uid="uid://dbudk203gx0dx" path="res://character/assets/character 3.png" id="4_7ut1k"]
 [ext_resource type="Texture2D" uid="uid://bjoh2k4gkfsqr" path="res://character/assets/character 4.png" id="5_07fis"]
+[ext_resource type="Texture2D" uid="uid://b4dp3o4rvm2lm" path="res://character/assets/character_up_1.png" id="6_uxd3d"]
+[ext_resource type="Texture2D" uid="uid://bqqbtkoo8ia80" path="res://character/assets/character_up_2.png" id="7_eqdpl"]
+[ext_resource type="Texture2D" uid="uid://csktfrp6qq1a" path="res://character/assets/character_up_3.png" id="8_lg1nf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ldxjm"]
 animations = [{
@@ -30,8 +33,22 @@ animations = [{
 "texture": ExtResource("2_cvm4i")
 }],
 "loop": true,
-"name": &"walking_side",
+"name": &"walking_left_right",
 "speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_eqdpl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_lg1nf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_uxd3d")
+}],
+"loop": true,
+"name": &"walking_up",
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2oasb"]
@@ -43,19 +60,19 @@ script = ExtResource("1_c0mep")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_ldxjm")
-animation = &"walking_side"
-frame_progress = 0.370469
+animation = &"walking_up"
+frame = 1
+frame_progress = 0.830575
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 7)
+visible = false
+position = Vector2(4.76837e-07, 7)
 rotation = 0.644027
 scale = Vector2(1, 0.998)
-skew = 0.143117
+skew = 0.228638
 shape = SubResource("CircleShape2D_2oasb")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
-limit_left = -200
-limit_top = 200
-limit_right = 5000
-limit_bottom = 2000
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
