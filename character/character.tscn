@@ -1,18 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://citr8vogbbncd"]
+[gd_scene load_steps=8 format=3 uid="uid://citr8vogbbncd"]
 
 [ext_resource type="Script" path="res://character/character.gd" id="1_c0mep"]
-[ext_resource type="Texture2D" uid="uid://bh2cncnmwvrg0" path="res://character/assets/character (2).png" id="1_svnns"]
-[ext_resource type="Texture2D" uid="uid://b0i8eaq3yhui3" path="res://character/assets/character (3).png" id="2_lcjrc"]
-[ext_resource type="Texture2D" uid="uid://dy0x6lgyakbo5" path="res://character/assets/character (1).png" id="3_oxksh"]
+[ext_resource type="Texture2D" uid="uid://f3dqpqlf11db" path="res://character/assets/character 1.png" id="2_cvm4i"]
+[ext_resource type="Texture2D" uid="uid://b1f3rn5wy843p" path="res://character/assets/character 2.png" id="3_1cnfr"]
+[ext_resource type="Texture2D" uid="uid://dbudk203gx0dx" path="res://character/assets/character 3.png" id="4_7ut1k"]
+[ext_resource type="Texture2D" uid="uid://bjoh2k4gkfsqr" path="res://character/assets/character 4.png" id="5_07fis"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ldxjm"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_svnns")
+"texture": ExtResource("2_cvm4i")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_lcjrc")
+"texture": ExtResource("3_1cnfr")
 }],
 "loop": true,
 "name": &"idle",
@@ -20,32 +21,41 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_lcjrc")
+"texture": ExtResource("5_07fis")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_oxksh")
+"texture": ExtResource("4_7ut1k")
 }, {
 "duration": 1.0,
-"texture": ExtResource("1_svnns")
+"texture": ExtResource("2_cvm4i")
 }],
 "loop": true,
-"name": &"moving",
+"name": &"walking_side",
 "speed": 4.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2oasb"]
-radius = 50.0
+radius = 30.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_c0mep")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(1011, 862)
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_ldxjm")
-animation = &"idle"
+animation = &"walking_side"
+frame_progress = 0.370469
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1015, 875)
+position = Vector2(-2, 7)
+rotation = 0.644027
 scale = Vector2(1, 0.998)
+skew = 0.143117
 shape = SubResource("CircleShape2D_2oasb")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+limit_left = -200
+limit_top = 200
+limit_right = 5000
+limit_bottom = 2000

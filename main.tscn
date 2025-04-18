@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://b72v2axlc417q"]
+
+[ext_resource type="PackedScene" uid="uid://dia0j1p2qo2pe" path="res://levelGenerator/levelGenerator.tscn" id="1_lio4s"]
+[ext_resource type="PackedScene" uid="uid://citr8vogbbncd" path="res://character/character.tscn" id="2_wkvhj"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Node2D" parent="." instance=ExtResource("1_lio4s")]
+position = Vector2(2300, 1080)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_wkvhj")]
+position = Vector2(1325, 973)

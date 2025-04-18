@@ -11,8 +11,9 @@ config_version=5
 [application]
 
 config/name="Leaf adventures"
-run/main_scene="res://character/character.tscn"
+run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
+boot_splash/image="res://character/assets/character (2).png"
 
 [display]
 
@@ -26,4 +27,5 @@ project/assembly_name="Leaf adventures"
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
